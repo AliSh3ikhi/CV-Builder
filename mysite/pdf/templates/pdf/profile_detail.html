@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body%}
+<div class="container">
+
+    <h2>Name: {{user_cv.name}}</h2>
+    <h2>Mail: {{user_cv.email}}</h2>
+    <h2>Phone: {{user_cv.phone}}</h2>
+    <hr>
+    <br>
+    <p>Summary</p>
+    <p> {{user_cv.summary}}</p>
+    <hr>
+    <p>Skills</p>
+    <p> {{user_cv.skills}}</p>
+    <hr>
+    <p>Education</p>
+    <ul>
+      <li>Schooling: {{user_cv.university}}</li>
+      <li>{{user_cv.degree}} from {{user_cv.school}}</li>
+    </ul>
+    <hr>
+    <p>previous Work</p>
+    <p> {{user_cv.previous_work}}</p>
+    <hr>
+    <br>
+    <a href="{% url 'pdf:download' pk=user_cv.pk %}" class="btn btn-warning">Download</a>
+</div>
+{% endblock %}
